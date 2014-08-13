@@ -36,7 +36,7 @@ class AssertHTMLContext(object):
         # TODO consider validating self.response['Content-Type']
 
         # Parse the response as HTML
-        html = lxml.html.fromstring(self.response.content)
+        html = lxml.html.fromstring(unicode(self.response.content))
         if self.selector is not None:
             # Use cssselect to filter the elements
             elements = html.cssselect(self.selector)
